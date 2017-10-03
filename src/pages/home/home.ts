@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Firebase } from '@ionic-native/firebase';
+import { FCM } from '@ionic-native/fcm';
 
 @Component({
   selector: 'page-home',
@@ -10,16 +10,30 @@ export class HomePage {
 
   token: String;
 
-  constructor(public navCtrl: NavController, private firebase: Firebase) {
-
-    this.firebase.getToken()
-    .then(token => {console.log(`The token is ${token}`);
-    this.token = token;
-  }) // save the token server-side and use it to push notifications to this device
-    .catch(error => console.error('Error getting token', error));
-
-    this.firebase.onTokenRefresh()
-    .subscribe((token: string) => console.log(`Got a new token ${token}`));
+  constructor(public navCtrl: NavController, fcm: FCM) {
+    fcm.subscribeToTopic('marketing');
+    
+    fcm.getToken().then(token=>{
+      this.token=token;
+      console.log(token);
+    });
+    
+    fcm.onNotification().subscribe(data=>{
+      if(data.wasTapped){
+        console.log("Received in background");
+      } else {
+        console.log("Received in foreground");
+      };
+    });
+    
+    fcm.onTokenRefresh().subscribe(token=>{
+      this.token=token;
+      console.log(token);
+    });
+    
+    fcm.unsubscribeFromTopic('marketing');
   }
+
+  
 
 }
