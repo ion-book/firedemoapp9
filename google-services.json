@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "141181591031",
+    "firebase_url": "https://codelab-22299.firebaseio.com",
+    "project_id": "codelab-22299",
+    "storage_bucket": "codelab-22299.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141181591031:android:1c508e6c320ade3d",
+        "android_client_info": {
+          "package_name": "com.ngclassroom.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141181591031-mndhagjbrh2vmba9avhgr0dbodmmag4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVDjxGG7T_TjVUIlL4YGw4eaXbAhn3-Zw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
